@@ -1,22 +1,22 @@
 <template>
-  <!-- <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div> -->
-  <div id="app" style="width: 100%; height: 100%; background: grey; position: relative;">
+  <div id="app">
+    <img alt="Vue logo" src="../../assets/logo.png">
+    <HelloWorld msg="乡村文旅虚实一体化展示"/>
+  </div>
+  <!-- <div id="app" style="width: 100%; height: 100%; background: grey; position: relative;">
       <earth-comp></earth-comp>
-  </div>  
+  </div>   -->
 </template>
 
 <script>
 import HelloWorld from './HelloWorld.vue'
-import EarthComp from './EarthComp.vue'
+// import EarthComp from './EarthComp.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    EarthComp
+    // EarthComp
   }
 }
 </script>
