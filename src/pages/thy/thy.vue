@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="../../assets/logo.png">
-    <h1>一颗数据小白菜</h1>
+    <!-- <img alt="Vue logo" src="../../assets/logo.png">
+    <h1>一颗数据小白菜</h1> -->
+    <ThyPart1/>
   </div>
 </template>
 
 <script>
+import ThyPart1 from "./ThyPart1.vue";
 export default {
   name: 'app',
+    components: {
+      ThyPart1,
+
+  }
 }
 </script>
 

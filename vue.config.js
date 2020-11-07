@@ -40,20 +40,20 @@ module.exports = {
   configureWebpack: config => {
     const cwp = new CopyWebpackPlugin([
       {
-        // from: './src/assets/scripts/Cesium', // 调试时，将Cesium换成CesiumUnminified
-        from: './node_modules/cesium/Build/Cesium',
+        from: './src/assets/js/Cesium', // 调试时，将Cesium换成CesiumUnminified
+        // from: './node_modules/cesium/Build/Cesium',
         to: 'js/Cesium',
         toType: 'dir'
       },
       {
-        // from: './src/assets/scripts/XbsjCesium',
-        from: './node_modules/earthsdk/dist/XbsjCesium',
+        from: './src/assets/js/XbsjCesium',
+        // from: './node_modules/earthsdk/dist/XbsjCesium',
         to: 'js/earthsdk/XbsjCesium',
         toType: 'dir'
       },
       {
-        // from: './src/assets/scripts/XbsjEarth',
-        from: './node_modules/earthsdk/dist/XbsjEarth',
+        from: './src/assets/js/XbsjEarth',
+        // from: './node_modules/earthsdk/dist/XbsjEarth',
         to: 'js/earthsdk/XbsjEarth',
         toType: 'dir'
       },
