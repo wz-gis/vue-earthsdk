@@ -39,24 +39,47 @@ module.exports = {
   },
   configureWebpack: config => {
     const cwp = new CopyWebpackPlugin([
-      {
-        from: './src/assets/js/Cesium', // 调试时，将Cesium换成CesiumUnminified
-        // from: './node_modules/cesium/Build/Cesium',
-        to: 'js/Cesium',
-        toType: 'dir'
-      },
-      {
-        from: './src/assets/js/XbsjCesium',
-        // from: './node_modules/earthsdk/dist/XbsjCesium',
-        to: 'js/earthsdk/XbsjCesium',
-        toType: 'dir'
-      },
-      {
-        from: './src/assets/js/XbsjEarth',
+      // {
+      //   from: './src/assets/js/Cesium', // 调试时，将Cesium换成CesiumUnminified
+      //   // from: './node_modules/cesium/Build/Cesium',
+      //   to: 'js/Cesium',
+      //   toType: 'dir'
+      // },
+      // {
+      //   from: './src/assets/js/XbsjCesium',
+      //   // from: './node_modules/earthsdk/dist/XbsjCesium',
+      //   to: 'js/earthsdk/XbsjCesium',
+      //   toType: 'dir'
+      // },
+      // {
+      //   from: './src/assets/js/XbsjEarth',
+      //   // from: './node_modules/earthsdk/dist/XbsjEarth',
+      //   to: 'js/earthsdk/XbsjEarth',
+      //   toType: 'dir'
+      // },
+        //引入public外部的js包
+        {
+        from: './public/scripts',
         // from: './node_modules/earthsdk/dist/XbsjEarth',
-        to: 'js/earthsdk/XbsjEarth',
+        to: './js/3rdParty',
         toType: 'dir'
-      },
+        },
+        //引入assets内部的js包
+        {
+          from: './src/assets/js',
+          // from: './node_modules/earthsdk/dist/XbsjEarth',
+          to: './myFile/js',
+          toType: 'dir'
+        },
+        //引入assets内部的css包
+        {
+          from: './src/assets/css',
+          // from: './node_modules/earthsdk/dist/XbsjEarth',
+          to: './myFile/css',
+          toType: 'dir'
+        },
+        
+
     ]);
     config.plugins.push(cwp);
   }

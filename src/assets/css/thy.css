@@ -1,0 +1,139 @@
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+#float-box{
+    z-index:99999;
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:300px;
+    height:90%;
+    color:#fff;
+    background:rgba(0,0,0,.6);
+}
+ul,li,div,p,body{
+    margin:0;
+    padding:0;
+}
+div{
+    box-sizing:border-box;
+}
+ul,li{
+    list-style:none;
+}
+#float-box ul{
+    width:100%;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+#float-box ul li{
+    width:100%;
+    position:relative;
+    box-sizing:border-box;
+}
+#float-box ul h4{
+    margin:15px 0;
+    font-weight:bold;
+    font-size:18px;
+    text-indent:10px;
+    border-left:4px solid #00ffff;
+}
+#float-box ul p{
+    display:inline-block;
+    width:48%;
+    margin:5px 0;
+    font-size:14px;
+}
+.smtxt{
+    font-size:14px;
+}
+#search-input,#search-btn{
+    vertical-align:middle;
+    min-width:60px;
+    border:0;
+    margin:0;
+    padding:0;
+    display:inline-block;
+    border:1px solid rgba(255,255,255,.6);
+    height:30px;
+    box-sizing:border-box;
+}
+#search-btn{
+    background:rgba(0,0,0,.6);
+    color:#fff;
+}
+#search-input:focus,#search-btn:focus{
+    outline:none;
+}
+#search-input{
+    width:200px;
+    text-indent:10px;
+    color:#fff;
+    background:rgba(0,0,0,.6);
+}
+.demo-tree-box{width: 200px; padding: 10px; border: 1px solid #ddd; overflow: auto;}
+#tree-data-box{
+    display:none;
+    width:100%;
+    height:400px;
+    position:absolute;
+    top:72px;
+    left:0;
+    z-index:999999;
+    background:rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.6);
+}
+#tree-data-box #close-x{
+    cursor:pointer;
+    color:#fff;
+    z-index:9999999;
+    position:absolute;
+    right:5px;
+    top:5px;
+}
+#tree-data-box .layui-tree-txt{
+    color:#fff;
+}
+#tree-data-box .tree-txt-active{color:#00ffff}
+.layui-tree-icon .layui-icon{
+    color:#fff;
+}
+
+#video-box{
+    position:absolute;
+    right:30px;
+    top:30px;
+    z-index:999999999999;
+     display: none; 
+}
+#close-video-x{
+    cursor:pointer;
+    color:#fff;
+    z-index:999999999999999999;
+    position:absolute;
+    right:0px;
+    top:-20px;
+}
+.defultbtn {
+    display: inline-block;
+    text-align: center;
+    min-width: 60px;
+    height: 38px;
+    padding: 0 10px;
+    line-height: 38px;
+    border-radius: 100px;
+    border: 1px solid #C9C9C9;
+    background-color: #FFF;
+    color: #555;
+    cursor: pointer;
+}
+.btnon {
+    background-color: #1E9FFF;
+    color: #fff;
+    border: 1px solid #1E9FFF;
+}
