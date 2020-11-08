@@ -1,0 +1,117 @@
+{
+    "poiPosition":[
+        {
+            "czmObject": {
+                "xbsjType": "Pin",
+                "xbsjGuid": "37649dca-8ceb-4686-880a-b418de8a8364",
+                "name": "天一塔",
+                "show":false,
+                "position": [
+                    1.9446489205742052,
+                    0.5023170890578174,
+                    69.40281306308577
+                ],
+                "pinBuilder": {
+                    "extText": "天一塔",
+                    "extTextFont": "64px 楷体",
+                    "makiIcon": "museum",
+                    "outlineColor": [
+                            0,
+                            0.22745098039215686,
+                            1,
+                            1
+                        ]
+                },
+                "far": 1073741824
+            }
+        },
+        {
+            "czmObject": {
+                "xbsjType": "Pin",
+                "xbsjGuid": "8934fb25-1c8b-4bfc-aae8-681f5d7fece6",
+                "name": "龙潭码头",
+                "show":false,
+                "position": [
+                    1.9445826301048745,
+                    0.5022044880454387,
+                    42.42206708214432
+                ],
+                "pinBuilder": {
+                    "extText": "龙潭码头",
+                    "extTextFont": "64px 楷体",
+                    "makiIcon": "city",
+                    "outlineColor": [
+                            0,
+                            0.22745098039215686,
+                            1,
+                            1
+                        ]
+                },
+                "far": 1073741824
+            }
+        },
+        {
+            "czmObject": {
+                "xbsjType": "Pin",
+                "xbsjGuid": "100001",
+                "name": "沙滩乐园",
+                "show":true,
+                "position": [1.9445589491379667,0.5022508105231276,41.81],
+                "pinBuilder": {
+                    "extText": "沙滩乐园",
+                    "extTextFont": "64px 楷体",
+                    "makiIcon": "museum"
+                },
+                "far": 1073741824
+            }
+        },
+        {
+            "czmObject": {
+                "xbsjType": "Pin",
+                "xbsjGuid": "100002",
+                "name": "射击竞技馆",
+                "show":true,
+                "position": [1.9446736835923344,0.5022633856203881,57.03],
+                "pinBuilder": {
+                    "extText": "射击竞技馆",
+                    "extTextFont": "64px 楷体",
+                    "makiIcon": "museum"
+                },
+                "far": 1073741824
+            }
+        },
+        {
+            "czmObject": {
+                "xbsjType": "Pin",
+                "xbsjGuid": "100003",
+                "name": "桃源故事客栈",
+                "show":true,
+                "position": [1.9446178417829167,0.5022726027041678,54.04],
+                "pinBuilder": {
+                    "extText": "桃源故事客栈",
+                    "extTextFont": "64px 楷体",
+                    "makiIcon": "museum"
+                },
+                "far": 1073741824
+            }
+        },
+        {
+            "czmObject": {
+                "xbsjType": "Pin",
+                "xbsjGuid": "100004",
+                "name": "伏波楼",
+                "show":true,
+                "position": [1.9446940934726071,0.5023049925244264,67.88],
+                "pinBuilder": {
+                    "extText": "伏波楼",
+                    "extTextFont": "64px 楷体",
+                    "makiIcon": "museum"
+
+                },
+                "far": 1073741824
+            }
+        }
+
+    ]
+}
+

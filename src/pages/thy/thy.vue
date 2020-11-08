@@ -3,15 +3,18 @@
     <!-- <img alt="Vue logo" src="../../assets/logo.png">
     <h1>一颗数据小白菜</h1> -->
     <ThyPart1/>
+    <!-- <CesiumContainer/> -->
   </div>
 </template>
 
 <script>
 import ThyPart1 from "./ThyPart1.vue";
+import CesiumContainer from './CesiumContainer'
 export default {
   name: 'app',
     components: {
       ThyPart1,
+      CesiumContainer
 
   }
 }
@@ -19,11 +22,9 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100%; 
+  background: grey;
+  position: relative;
 }
 </style>

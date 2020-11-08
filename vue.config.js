@@ -66,21 +66,44 @@ module.exports = {
         },
         //引入assets内部的js包
         {
-          from: './src/assets/js',
+          from: './src/assets',
           // from: './node_modules/earthsdk/dist/XbsjEarth',
-          to: './myFile/js',
+          to: './myFile',
           toType: 'dir'
         },
         //引入assets内部的css包
-        {
-          from: './src/assets/css',
-          // from: './node_modules/earthsdk/dist/XbsjEarth',
-          to: './myFile/css',
-          toType: 'dir'
-        },
+        // {
+        //   from: './src/assets/css',
+        //   // from: './node_modules/earthsdk/dist/XbsjEarth',
+        //   to: './myFile/css',
+        //   toType: 'dir'
+        // },
         
 
     ]);
     config.plugins.push(cwp);
-  }
+  },
+
+  //设置跨域
+  devServer: {
+    open: true,
+    overlay: {
+      warnings: false,
+      errors: false
+    },
+    port: 8080, //本机端口号
+    host: "localhost", //本机主机名
+    https: false, //协议
+    open: true, //启动服务器时自动打开浏览器访问
+    proxy: {
+        '/api': {
+            //目标服务器,代理访问到http://localhost:8888
+            target: "http://localhost:81",
+            changOrigin: true, //开启代理
+            pathRewrite: {
+                '^/api': ''
+            }
+        }
+    },
+  },
 }
