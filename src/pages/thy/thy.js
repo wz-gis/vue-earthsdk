@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import App from './thy.vue'
+import axios from 'axios'
+//把axios赋值到vue的原型上，方便调用
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 

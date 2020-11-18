@@ -164,7 +164,11 @@ var ThyPart1 = {
                     }
                     if(obj.data.id==100021){
                         _this.clearAllWindow();
+                        var pathUrl = "./myFile/data/path.geojson";
+
                         _this.creatCarModel();
+                        // _this._path1.show = true;
+                        // console.log(_this._path1)
                         // createCarModel(_this._earth,_this._path1,_this.cameraAttached,_this.playing,_this.currentD,_this.currentSpeed,_this.showInfo,_this.showNavigation,
                         // _this._carshow1,_this._carshow2,_this._cameraAttachedUnbind,_this._playingUnbind,_this._currentDUnbind,_this._currentSpeedUnbind,_this._carpin,_this._carModel);
                         // _this.showInfo = false;
@@ -189,6 +193,23 @@ var ThyPart1 = {
         // }
         _this.startup();
 
+        //参数获取解析
+        {
+            var guidePoint = this.getQueryVariable("guide-point");
+            if(guidePoint){
+                _this.flyToAround(guidePoint);
+            }
+
+
+            var navigationRoute = this.getQueryVariable("navigation-route")
+            if(navigationRoute == 1){
+                _this.clearAllWindow();
+                _this.creatCarModel();
+                _this.spotDisplay();
+            }
+           
+        }
+
       },
       filters: {
         numFilter(value) {
@@ -204,7 +225,7 @@ var ThyPart1 = {
       },
       methods:{
         startup:function() {
-            // var _this = this;
+            var _this = this;
             var earth = new XE.Earth(this.$refs.earthContainer);
             earth.interaction.picking.enabled = true; // 开启拾取操作
             earth.weather.atmosphere.enabled = false;
@@ -232,15 +253,51 @@ var ThyPart1 = {
             //读取geojson文件，坐标使用弧度 linestring 
             var pathPosition = null;
             var pathUrl = "./myFile/data/path.geojson";
-                $.ajax({
+
+            $.ajax({
                 type: "GET",
                 url: pathUrl,
                 async: false,
                 dataType: "json",
                 success: function(data) {
-                    pathPosition = data.geometry.coordinates;                 
+                    pathPosition = data.geometry.coordinates;  
+                    
+            //         var objConfig = {
+            //           "ref": 'path1',
+            //           "czmObject": {
+            //               "xbsjType": "Path",
+            //               "name": "路线1",
+            //               "positions":pathPosition,
+            //             //   "rotations":pathRotation,
+            //               "show": false, // 显示路径
+            //               "loop": false, // 是否为环线
+            //               "showDirection": false, // 显示方向(默认为true) 
+            //             //  "slices":20,
+            //               "currentSpeed":20,
+            //               "targetPicking":true,
+            //               "alwaysAlongThePath":true,
+            //               "playing": true, // 飞行
+            //               // 是否循环播放 如果为false，则playing设置为true时，会从当前位置播放到最后一个关键点，并停止播放，此时playing属性会自动变成false。 若此属性为true时，播放到最后一个关键点以后，将自动重第一个关键点继续播放。
+            //               "loopPlay": true
+            //           }
+            //         };
+            //         var path = new XE.Obj.Path(earth);  
+            //         path.xbsjFromJSON(objConfig);
+            //         // XE.SceneTree.Leaf是场景树的叶子节点类
+            //         earth.sceneTree.root.children.push(new XE.SceneTree.Leaf(path));  
+            //         _this._path1 = path;
+                                 
                 }
             });
+            // console.log(_this._path1);
+            // _this.$axios({
+            //     methods: "GET",
+            //     url: pathUrl,
+            //     dataType: "json"
+            // }).then(response =>{
+            //     // console.log(response);
+            //     pathPosition = response.data.geometry.coordinates;  
+            // })
 
             //加载数据
             earth.sceneTree.root = {
@@ -339,18 +396,33 @@ var ThyPart1 = {
             //加载poi点
             var poiPosition = null;
             var poiUrl = './myFile/data/poi.json'
-            $.ajax({
-                type: "GET",
+            // $.ajax({
+            //     type: "GET",
+            //     url: poiUrl,
+            //     async: false,
+            //     dataType: "json",
+            //     success: function(data) {
+            //         poiPosition = data.poiPosition; 
+            //         for (var i=0;i<poiPosition.length;i++){
+            //             earth.sceneTree.root.children.push(poiPosition[i]);
+            //         }         
+            //     }
+            // });
+            _this.$axios({
+                methods: 'GET',
                 url: poiUrl,
-                async: false,
-                dataType: "json",
-                success: function(data) {
-                    poiPosition = data.poiPosition; 
+                dataType: "json",                
+            })
+            .then(response =>{
+                    console.log(response)
+                    poiPosition = response.data.poiPosition; 
+                    console.log(poiPosition)
                     for (var i=0;i<poiPosition.length;i++){
                         earth.sceneTree.root.children.push(poiPosition[i]);
-                    }         
-                }
-            });
+                    }      
+            })
+
+        
 
             //添加bing底图
             {
@@ -385,7 +457,7 @@ var ThyPart1 = {
             {
                 this._disposers = [];
                 this._disposers.push(XE.MVVM.bind(this, 'measureMentType', earth.analyzation.measurement, 'type'));
-                tileset.flyTo();
+                // tileset.flyTo();
                 
                 // this.getModelHeight(viewer,111.4227640,28.7799561)                          
             }
@@ -398,6 +470,7 @@ var ThyPart1 = {
             //     this._currentDUnbind = XE.MVVM.bind(this, 'currentD', this._path1, 'currentD');
             //     this._currentSpeedUnbind = XE.MVVM.bind(this, 'currentSpeed', this._path1, 'currentSpeed');
             // }
+
             
 
             //测试用
@@ -408,6 +481,7 @@ var ThyPart1 = {
             this._earth = earth;
             this._tileset = tileset;
             this._path1 = path1;
+
 
             // this.changehello()
             // console.log(this.hello)
@@ -438,6 +512,7 @@ var ThyPart1 = {
             
 
             var  path1 = earth.sceneTree.$refs.path1.czmObject;
+            // var path1 = _this._path1.czmObject;
             // path1.directionAlongThePath();
             path1.show = true;
 
@@ -472,7 +547,7 @@ var ThyPart1 = {
                  model.cameraAttachedOffsetRotation=[0, -Math.PI/10,0] 
                 };
                
-               console.log(model)
+            //    console.log(model)
 
         },
 
@@ -525,6 +600,7 @@ var ThyPart1 = {
       spotDisplay:function(){
             var earth = this._earth;
             var  path1 = earth.sceneTree.$refs.path1.czmObject;
+            // var path1 = this._path1.czmObject;
             XE.MVVM.watch(path1, 'currentPosition', position => {
 
             var spots =[
@@ -599,6 +675,18 @@ var ThyPart1 = {
     //开启导航功能一系列监听
     startNavigationListen(){
 
+    },
+
+    //获取url参数
+    getQueryVariable(variable)
+    {   
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
     }
 
       },
